@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="EventHub – discover, explore and register for upcoming events.">
+<title>EventHub – Discover & Register for Events</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a href="#home" class="logo">🎟️ Event<span>Hub</span></a>
+  <nav>
+    <a href="#events">Events</a>
+    <a href="#registrations">My Registrations</a>
+    <button id="themeBtn" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Learn • Compete • Celebrate</p>
+      <h1>Find events that <em>move</em> you.</h1>
+      <p class="lead">Browse workshops, concerts, hackathons and more. Register in under a minute.</p>
+      <a href="#events" class="btn">Explore Events</a>
+    </div>
+  </section>
+
+  <section id="events" class="wrap">
+    <h2>Upcoming Events</h2>
+    <div class="controls">
+      <input id="search" type="search" placeholder="🔍 Search events, venues…" aria-label="Search events">
+      <div id="filters" class="chips"></div>
+    </div>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="empty" hidden>No events match your search. Try another keyword or category.</p>
+  </section>
+
+  <section id="registrations" class="wrap">
+    <h2>My Registrations</h2>
+    <ul id="regList" class="reg-list"></ul>
+  </section>
+</main>
+
+<footer>© 2026 EventHub • Built with HTML, CSS & JavaScript</footer>
+
+<div id="modal" class="modal" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button id="closeBtn" class="icon-btn close" aria-label="Close">✕</button>
+    <div id="mBanner" class="banner"></div>
+    <div class="sheet-body">
+      <span id="mCat" class="tag"></span>
+      <h3 id="mTitle"></h3>
+      <p class="meta" id="mMeta"></p>
+      <p id="mDesc"></p>
+      <div id="mCount" class="countdown"></div>
+
+      <form id="regForm" novalidate>
+        <h4>Register Now</h4>
+        <label>Full Name
+          <input id="name" type="text" placeholder="Jane Doe" autocomplete="name">
+          <small class="err" id="nameErr"></small>
+        </label>
+        <label>Email
+          <input id="email" type="email" placeholder="jane@example.com" autocomplete="email">
+          <small class="err" id="emailErr"></small>
+        </label>
+        <label>Phone Number
+          <input id="phone" type="tel" placeholder="9876543210" autocomplete="tel">
+          <small class="err" id="phoneErr"></small>
+        </label>
+        <label>Selected Event
+          <select id="eventSel"></select>
+          <small class="err" id="eventErr"></small>
+        </label>
+        <button class="btn" type="submit">Confirm Registration</button>
+      </form>
+
+      <div id="success" class="success" hidden>
+        <div class="tick">✓</div>
+        <h4>You're in!</h4>
+        <p id="successMsg"></p>
+        <button class="btn" id="doneBtn" type="button">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
